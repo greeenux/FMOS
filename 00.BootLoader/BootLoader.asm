@@ -1,4 +1,4 @@
-[ORG 0x00]  							;set code's starting address to 0x00
+[ORG 0x00]								;set code's starting address to 0x00
 [BITS 16]   							;set following code as 16bits.
 
 SECTION .text   						;define section(segment)
@@ -8,7 +8,7 @@ jmp 0x07c0:START						;copy 0x07c0 to CS segment and move to START label
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; FMOS Configuration Settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-TOTALSECTORCOUNT: dw 1024 				;size of fmos image excluding BootLoader up to 1152 secotrs (0x90000bytes) available.
+TOTALSECTORCOUNT: dw 1				;size of fmos image excluding BootLoader up to 1152 secotrs (0x90000bytes) available.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;code area;
