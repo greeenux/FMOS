@@ -34,7 +34,7 @@ PROTECTEDMODE:
 	call PRINTMESSAGE
 	add esp,12
 
-	jmp $
+	jmp dword 0x08:0x10200 ; go to the address 0x10200 and execute c language kernel
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;FUNCTION code section
