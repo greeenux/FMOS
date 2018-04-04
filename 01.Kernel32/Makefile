@@ -43,8 +43,8 @@ clean :
 ##########################################
 CENTRYPOINTOBJECTFILE= Main.o
 CSOURCEFILES= $(wildcard ../$(SOURCEDIRECTORY)/*.c)
-ASSEMBLYSOURCEFILES= $(wildcard ../$(SOURCEDIRECTORY)*.asm)
-OBJECTFILES = $(subst Main.o, , $(notdir $(patsubst %.c,%.o,$(CSOURCEFILES))))
+ASSEMBLYSOURCEFILES= $(wildcard ../$(SOURCEDIRECTORY)/*.asm)
+COBJECTFILES = $(subst Main.o, , $(notdir $(patsubst %.c,%.o,$(CSOURCEFILES))))
 ASSEMBLYOBJECTFILES =$(notdir $(patsubst %.asm,%.o,$(ASSEMBLYSOURCEFILES)))
 
 #rules to convert .c files to .o files
@@ -57,7 +57,7 @@ ASSEMBLYOBJECTFILES =$(notdir $(patsubst %.asm,%.o,$(ASSEMBLYSOURCEFILES)))
 InternalDependency:
 	$(GCC32) -MM $(CSOURCEFILES) > Dependency.dep
 
-Kernel32.elf : $(CENTRYPOINTOBJECTFILE) $(COBJECTFILE) $(ASSEMBLYOBJECTFILES)
+Kernel32.elf : $(CENTRYPOINTOBJECTFILE) $(COBJECTFILES) $(ASSEMBLYOBJECTFILES)
 	$(LD32) -o $@ $^
 
 ifeq (Dependency.dep, $(wildcard Dependency.dep))

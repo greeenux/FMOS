@@ -3,11 +3,11 @@ OUTPUT_FORMAT("elf32-i386", "elf32-i386",
 	      "elf32-i386")
 OUTPUT_ARCH(i386)
 ENTRY(Main)
-SEARCH_DIR("/usr/lib32"); SEARCH_DIR("/usr/lib");
+SEARCH_DIR("/usr/lib"); SEARCH_DIR("/usr/lib64");
 SECTIONS
 {
   /* Read-only sections, merged into text segment: */
-  PROVIDE (__executable_start = 0x0804800); . = 0x08048000 + SIZEOF_HEADERS;
+  PROVIDE (__executable_start = 0x08048000); . = 0x08048000 + SIZEOF_HEADERS;
 /*********************************************************************************/
 /* Moved forward due to section relocation */
   .text 0x10200          :
@@ -206,4 +206,3 @@ SECTIONS
   .gnu.attributes 0 : { KEEP (*(.gnu.attributes)) }
   /DISCARD/ : { *(.note.GNU-stack) *(.gnu_debuglink) }
 }
-
